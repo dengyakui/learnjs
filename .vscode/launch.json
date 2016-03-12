@@ -1,0 +1,26 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch o1.html",
+			"type": "chrome",
+			"request": "launch",
+			"file": "${workspaceRoot}/01.html"
+		}
+        // ,
+		// {
+		// 	"name": "Launch localhost with sourcemaps",
+		// 	"type": "chrome",
+		// 	"request": "launch",
+		// 	"url": "http://localhost/mypage.html",
+		// 	"sourceMaps": true,
+		// 	"webRoot": "wwwroot"
+		// },
+		// {
+		// 	"name": "Attach",
+		// 	"type": "chrome",
+		// 	"request": "attach",
+		// 	"port": 9222
+		// }
+	]
+}
