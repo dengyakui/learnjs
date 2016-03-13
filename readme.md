@@ -31,7 +31,7 @@ var str = 'hello,world.';
 console.log(str.indexOf('h')); //0
 console.log(str.indexOf('e')); //1
 ```
-### substrign
+### substring
 `substring(start,end)` 根据制定的索引位置从字符串中返回一段字符,
 ：
 ```
