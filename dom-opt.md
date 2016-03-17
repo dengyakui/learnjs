@@ -121,7 +121,7 @@ $("div").find("p:last");
 
 ### parent,parents 查找父级元素
 
-### closest 查找第一个配置的上级元素
+### closest 查找第一个匹配的祖先元素
 与parents相比，不同之处：
 - 查找的起点不同，parents从父级开始，closest从元素同级开始
 - 查找方式不同，parents一直查找到根元素，然后找出匹配的元素；
