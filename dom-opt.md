@@ -8,7 +8,7 @@
 ```
 var div = document.createElement('div');
 div.setAttribute('class','right');
-div.innserHTML = "Hello,world.";
+div.innerHTML = "Hello,world.";
 document.body.appendChild(div);
 ```
 同样的操作用jQuery来实现
