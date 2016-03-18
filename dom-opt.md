@@ -1,20 +1,29 @@
-## jQuery DOM节点操作
-### native js 操作dom涉及的方法
-- 创建元素：document.createElement
-- 设置attribute：setAttribute
-- 添加文本： innerHTML
-- 加入到文档：appendChild
+## js操作dom
 
-```
-var div = document.createElement('div');
-div.setAttribute('class','right');
-div.innerHTML = "Hello,world.";
-document.body.appendChild(div);
-```
-同样的操作用jQuery来实现
-```
-$("body").append($("<div class='right'>Hello,world.</div>"));
-```
+### 选择器
+- getElementById
+- getElementsByName 根据name属性查找元素，返回一个数组
+- getElementsByTagName 根据元素标签名查找元素，返回一个数组
+
+### 获取/设置dom元素的attr
+- getAttribute(key,val)
+- setAtrribute(key)
+
+### 访问上下级节点
+- parentNode 获取父节点，返回一个dom节点
+- childNodes 获取子元素集合，返回一个dom数组
+
+### 创建节点
+- document.createTextNode('txt') 创建一个文本节点
+- document.createElement('div')  创建一个dom元素
+- domObj.appendChild(dom) 将元素插入到元素内
+- domObj.insertBefore(要插入的子元素,插入到哪个子元素之前)
+- domeObj.remove 将元素自身从文档中删掉
+- domObj.removeChild(dom) 删除子元素
+- innerHTML 在元素内添加html 
+
+## jQuery DOM节点操作
+
 
 ### empty 清空节点内容
 
