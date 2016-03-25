@@ -18,7 +18,7 @@
 - document.createElement('div')  创建一个dom元素
 - domObj.appendChild(dom) 将元素插入到元素内
 - domObj.insertBefore(要插入的子元素,插入到哪个子元素之前)
-- domeObj.remove 将元素自身从文档中删掉
+- domeObj.remove() 将元素自身从文档中删掉
 - domObj.removeChild(dom) 删除子元素
 - innerHTML 在元素内添加html 
 
@@ -55,7 +55,7 @@ $("body").append(detachedElement);
 ```
 
 ### clone 克隆元素
-cloen方法可以对元素进行复制及修改，默认使用的是浅克隆，
+clone方法可以对元素进行复制及修改，默认使用的是浅克隆，
 不会复制元素绑定的事件和附加数据，可以调用重载的clone方法进行深克隆
 ```
 //浅克隆
@@ -65,10 +65,10 @@ var deepP = $("p").clone(true);
 ```
 ### replaceWith,replaceAll
 都是用来替换元素，只不过执行顺序不一样，
-replaceWidth是先选择要替换的元素再指定要替换成什么元素；
-replaceAll是先指定用于替换的元素，再指定需要被替换的元素
+replaceWidth是先用选择器选择元素然后再指定替换的元素；
+replaceAll是先指定用于替换的元素，再指定被替换的元素
 ```
-$("selector").replaceWidth("element");
+$("selector").replaceWidth("replaceElement");
 $("repleceElement").replaceAll("selector");
 
 //参数也可以一个返回对象的function
@@ -77,12 +77,12 @@ $("div").replaceWith(function(){
 });
 ```
 
-### wrap 给所有匹配的元素增加一个父元素
+### wrap 给每个匹配的元素添加一个父节点
 ```
 $("p").wrap("<div></div>");
 ```
 
-### unwrap给每个匹配的元素去掉父元素
+### unwrap给每个匹配的元素去掉一层父元素
 ```
 $("p").unwrap("<div></div>");
 ```
@@ -115,7 +115,7 @@ $("p").wrapInner("<span></span>");
 //<p><span></span></p>
 ```
 
-### children 选择元素的子元素
+### children 选择元素的直接子元素
 ```
 $("div").children();
 $("div").children(":first");
@@ -132,9 +132,9 @@ $("div").find("p:last");
 
 ### closest 查找第一个匹配的祖先元素
 与parents相比，不同之处：
-- 查找的起点不同，parents从父级开始，closest从元素同级开始
+- 查找的起点不同，parents从父级开始，closest从元素同级开始，查找范围包括元素的兄弟节点
 - 查找方式不同，parents一直查找到根元素，然后找出匹配的元素；
-closest只要找到匹配的元素就会停止查找
+closest逐层向上查找，只要找到匹配的元素就会停止查找
 
 
 
