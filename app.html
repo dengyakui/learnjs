@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul li{margin:0;padding:0;list-style: none;}
+    ul{
+        width:400px;
+    }
+    li{
+        float:left;
+        position: relative;
+        border:1px solid #000;
+    }
+    li>div{
+        width: 200px;height: 100px;background-color:red;display: none;
+        position: absolute;
+        top:147px;
+        left: 0;
+        z-index:1000;
+    }
+    </style>
+    
+    <script>
+        window.onload = function(){
+            var ul = document.getElementsByTagName("ul")[0];
+            var list = ul.getElementsByTagName("li");
+                for(var i =0;i<list.length;i++){
+                    list[i].onmouseover = function(){
+                    this.getElementsByTagName("div")[0].style.display = "block";
+                }
+                list[i].onmouseout= function(){
+                this.getElementsByTagName("div")[0].style.display = "none";
+                }
+            }
+            
+        };
+    </script>
+</head>
+<body>
+   
+  <ul>
+      <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+      <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+       <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+      <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+       <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+      <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+       <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+      <li>
+          <img src="app.png" alt="">
+          <div>
+              <p>Lorem ipsum dolor sit amet, consectetur a</p>
+          </div>
+      </li>
+    
+  </ul>
+</body>
+</html>
