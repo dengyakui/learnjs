@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        .active {
+            background-color: red;
+        }
+        
+        .wrap div {
+            display: none;
+            width: 200px;
+            height: 100px;
+            border: 5px solid #ccc;
+        }
+        
+        .wrap>div.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap" class="wrap">
+        <input type="button" value="1" class="active">
+        <input type="button" value="2">
+        <input type="button" value="3">
+        <div class="show">div1</div>
+        <div>div2</div>
+        <div>div3</div>
+    </div>
+    <div id="wrap2" class="wrap">
+        <input type="button" value="1" class="active">
+        <input type="button" value="2">
+        <input type="button" value="3">
+        <div class="show">div1</div>
+        <div>div2</div>
+        <div>div3</div>
+    </div>
+    <script>
+        window.onload = function() {
+            var tab = new Tab("wrap");
+            tab.init();
+            var tab2 = new Tab("wrap2");
+            tab2.init();
+            tab2.autoPlay();
+        };
+
+
+        function Tab(id) {
+            this.wrap = document.getElementById(id);
+            this.btns = this.wrap.getElementsByTagName("input");
+            this.panels = this.wrap.getElementsByTagName("div");
+            this.num = 0;
+        }
+        
+        Tab.prototype.init = function() {
+            var self = this;
+            for (var i = 0; i < this.btns.length; i++) {
+                this.btns[i]["index"] = i;
+                this.btns[i].onclick = function() {
+                    self.togglePanel(this);
+                };
+            }
+        }
+        Tab.prototype.togglePanel = function(btn) {
+            Array.prototype.forEach.call(this.btns, function(el) {
+                el.className = "";
+            })
+            btn.className = "active";
+
+            Array.prototype.forEach.call(this.panels, function(el) {
+                el.className = "";
+            })
+            var index = btn.index;
+            this.num = index;
+            this.panels[index].className = "show";
+        }
+        Tab.prototype.autoPlay = function() {
+            var self = this;
+            
+            setInterval(function() {
+                self.num++;
+                if (self.num >= self.btns.length) {
+                    self.num = 0;
+                }
+                Array.prototype.forEach.call(self.btns, function(el) {
+                    el.className = "";
+                })
+                var index = self.num;
+                console.log(index);
+                self.btns[index].className = "active";
+
+                Array.prototype.forEach.call(self.panels, function(el) {
+                    el.className = "";
+                })
+
+                self.panels[index].className = "show";
+
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
