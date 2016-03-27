@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,ol,p,body,h1,h2,h3,h4,h5,h6 {margin:0;padding:0;list-style:none;
+    color:#333;
+    }
+    .list{
+        width:150px;
+        border: 1px solid #ccc;
+        margin:20px auto;
+    }
+    .flist{
+        display: none;
+    }
+    .flist>li{
+        height: 30px;
+        line-height: 30px;
+        
+    }
+    h4{
+       line-height: 2em;
+       background: url(ico1.gif) no-repeat 5px center #0094ff;
+       padding-left: 20px;
+    }
+    .item-active{
+        background: url(ico2.gif) no-repeat 5px center yellow;
+    }
+    </style>
+    
+    <script>
+        window.onload = function(){
+          // 1click
+            var list = document.getElementsByClassName("item");
+         
+            for(var i=0;i<list.length;i++){
+                var items = document.getElementsByClassName("item")[i].getElementsByTagName("li");
+                for(var j=0;j<items.length;j++){
+                    items[j].onclick = function(){
+                        this.style.backgroundColor ="red";
+                    };
+                }
+                
+                
+                
+                var h4 = list[i].getElementsByTagName("h4")[0];
+            
+                h4.onclick = function(){
+                var parentLi = this.parentNode;
+                var flist =parentLi.getElementsByTagName("ul")[0];
+                    if(this.className=="item-active")
+                    {
+                        this.className = "";
+                        
+                        flist.style.display = "none";
+                    }
+                    else{
+                        //关掉其他的item
+                        var siblings = parentLi.parentNode.getElementsByClassName("item-active");
+                        if(siblings.length>0){
+                            for(var i=0;i<siblings.length;i++){
+                                var parent = siblings[i].parentNode;
+                                parent.getElementsByClassName("flist")[0].style.display="none";
+                                siblings[i].className="";
+                                
+                            }
+                        }
+                        this.className = "item-active";
+                        
+                        flist.style.display = "block";
+                    }
+                };//end click
+                
+            }
+        };
+    </script>
+</head>
+<body>
+    <ul class="list">
+        <li class="item">
+            <h4>我的好友</h4>
+            <ul class="flist">
+                <li>friend1</li>
+                <li>friend2</li>
+                <li>friend3</li>
+            </ul>
+        </li>
+        <li class="item">
+            <h4>企业好友</h4>
+            <ul class="flist">
+                <li>friend1</li>
+                <li>friend2</li>
+                <li>friend3</li>
+            </ul>
+        </li>
+        <li class="item">
+            <h4>黑名单</h4>
+            <ul class="flist">
+                <li>friend1</li>
+                <li>friend2</li>
+                <li>friend3</li>
+            </ul>
+        </li>
+       
+    </ul>
+</body>
+</html>

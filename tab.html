@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        .active{
+            background-color:red;
+        }
+        
+        #wrap div{
+            display: none;
+            width: 200px;
+            height: 100px;
+           
+           border:5px solid #ccc;
+        }
+        #wrap>div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+   <div id="wrap">
+       <input type="button" value="1">
+       <input type="button" value="2">
+       <input type="button" value="3">
+       <div class="show">div1</div>
+       <div>div2</div>
+       <div>div3</div>
+   </div>
+   
+   <script>
+       var wrap = document.getElementById("wrap");
+       var btns = wrap.getElementsByTagName("input");
+       var panels = wrap.getElementsByTagName("div");
+       for(var i= 0;i<btns.length;i++){
+           btns[i]["index"] = i;
+           btns[i].onclick= function(){
+               Array.prototype.forEach.call(btns,function(el){
+                   el.className="";
+               })
+               this.className = "active";
+               
+               Array.prototype.forEach.call(panels,function(el){
+                   el.className="";
+               })
+               var index = this.index;
+               panels[index].className="show";
+           }
+       }
+   </script>
+</body>
+</html>

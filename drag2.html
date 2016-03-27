@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="bind-drag.js"></script>
+    <style>
+        body{padding:0;margin:0;}
+        .wrap{
+            width: 500px;
+            height: 500px;
+            background-color:#ccc;
+            position: relative;
+            overflow: hidden;
+            left:100px;
+            top:200px;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color:red;
+            position: absolute;
+            left:10px;
+            top:10px;
+        }
+        #bar{
+            height: 20px;
+            background-color:
+            #ccc;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+    <div id="box">
+        <div id="bar">bar</div>
+    </div>    
+    </div>
+    
+    
+    <script>
+        var bar = document.getElementById("bar")
+        var target = document.getElementById("box")
+        
+        bindDrag(bar,target);
+    </script>
+</body>
+</html>

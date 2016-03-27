@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+border:1px solid #000;
+float:left;
+height: 500px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="left">Lorem ipsimpedit quaerat repellat deleniti.</div>
+    <div></div>
+    <div id="right"></div>
+    
+    <script>
+        var leftDiv = document.getElementById("left");
+        var rightDiv = document.getElementById("right");
+        var str = document.getElementById("left").innerText;
+        var strRight = document.getElementById("right").innerText;
+        
+        var arr = str.split("");
+        var t = setInterval(function(){
+            if(arr.length<=0){
+                clearInterval(t);
+                return;
+            }
+            var s = arr.shift();
+            strRight+=s;
+            leftDiv.innerText = arr.join("");
+            rightDiv.innerText = strRight;
+        },50);
+    </script>
+</body>
+</html>
